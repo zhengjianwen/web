@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+<input type="text" id="sr" value="请输入" onblur="d()" onfocus="s()">
+</div>
+<script>
+    var ele = document.getElementById("sr");
+    function s() {
+        ele.value=""
+    }
+    function d() {
+        ele.value="请输入"
+    }
+</script>
+
+</body>
+</html>

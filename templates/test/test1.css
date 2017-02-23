@@ -1,0 +1,5 @@
+/* CSS Document */
+*{margin: 0px;}
+#head{background-color: blue;word-spacing: 15px;width: 300px;height: 300px;text-align: center}
+#head a{display: inline-block;width: 80px;height: 30px color: #fff;white-space: 10px;font-size: 20px;line-height: 20px}
+#head .a:hover{width: 80px;height: 30px; line-height: 20px;color: #000000;background-color: aqua}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <script src="jquery-3.1.1.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<p>身高：<input type="text" id="sg" name="sg" value=""></p>
+<p>体重：<input type="text" id="tz" name="tz" value=""></p>
+
+<button id="tj">开始计算</button>
+<script>
+
+    $('#tj').click(function () {
+        var sg = $('#sg').val();
+        var tz = $('#tz').val();
+
+        var bmi= tz/(sg*sg)*10000
+        var ret=Math.round(bmi*100)/100
+
+        if (ret<18.5){
+            alert('你丫太轻了，才'+ret)
+        }else if(ret>=18.5 && ret<24){
+            alert('恭喜你，你很正常！BMI:'+ret)
+        }else if(ret>24 && ret<=27){
+            alert('有点重哦！BMI是：'+ret)
+        }else if(ret>27 && ret<=30){
+            alert('快减肥吧！没法看了！BMI：'+ret)
+        }else {
+            alert('我草！你的有多肥！我都不想说了！'+ret)
+        }
+
+    })
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>漂浮注册</title>
+    <style>
+        *{margin: 0px;padding: 0px;font-size: 18px;}
+        .a{
+            height: 1000px;
+            background-color: #ffffff;
+        }
+        .b{
+            position: fixed;
+            top:0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            background-color: #a8a8a8;
+            opacity: 0.4;
+
+        }
+
+        .c{
+            height: 200px;
+            width: 400px;
+            background-color: #020401;
+            margin:280px auto;
+            opacity: 1;
+            color: white;
+            text-align: center;
+            border-radius:15px ;
+        }
+        .hidde{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="a" onclick="">
+    <button onclick="show()">注册</button>
+</div>
+<div class="b hidde">
+    <div class="c">
+
+        <p>白日衣衫尽</p>
+        <p>黄河入海流</p>
+        <p>欲穷千里目</p>
+        <p>更上一层楼</p>
+        <input type="text">
+        <button onclick="gb()">关闭</button>
+    </div>
+</div>
+<script>
+    var ele1=document.getElementsByClassName('b')[0];
+    function show() {
+        ele1.classList.remove('hidde');
+    }
+    function gb() {
+        ele1.classList.add('hidde');
+    }
+</script>
+
+
+</body>
+</html>

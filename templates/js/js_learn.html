@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>js学习</title>
+    <style>
+        body{background-color: #0b79e9}
+    </style>
+</head>
+<body>
+<script>
+// 匿名函数
+    var func = function(arg){
+        return arg;
+    }
+    alert(func("haha"))
+
+// 匿名函数的应用
+    (function(){
+        alert("tony");
+    } )()
+
+    (function(arg){
+        console.log(arg);
+    })('123')
+</script>
+
+</body>
+</html>

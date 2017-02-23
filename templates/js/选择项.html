@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>Title</title>
+    <style>
+        #db,#chiose{
+            float: left;
+            width: 60px;
+            height: 100px;
+        }
+        table{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<table width="200px">
+    <tr>
+        <td rowspan="3">
+            <select name="" id="db" multiple>
+            </select>
+        </td>
+        <td><button onclick="add()">添加</button></td>
+        <td rowspan="3">
+            <select name="" id="chiose" multiple>
+                <option value=""></option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td><button onclick="allc()">全选</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="cx()">重选</button></td>
+    </tr>
+</table>
+
+<script>
+    data=["北京",'上海','天津','河北'];
+    var data1=["北京",'上海','天津','河北'];
+    var data2=[];
+    var db=document.getElementById("db");
+    var chiose=document.getElementById("chiose");
+
+    function sx() {
+        db.options.length=0;
+        for (var i in data1){
+            var opt=document.createElement("option");
+            opt.innerHTML=data1[i];
+            db.appendChild(opt);
+        }
+        chiose.options.length=0;
+        for (var v in data2){
+            var opt1=document.createElement("option");
+            opt1.innerHTML=data2[v];
+            chiose.appendChild(opt1);
+        }
+    }
+    sx();
+    db.onchange=function(){
+        var v=(this.options[this.selectedIndex]).innerHTML;
+        data1.splice(data1.indexOf(v),data1.indexOf(v)+1);
+        data2.push(v);
+        chiose.options.length=0;
+        sx()
+    };
+    function allc() {
+        data2=data;
+        data1=[];
+        console.log(data2);
+        sx()
+        }
+    function cx() {
+        data2=[];
+        data1=data;
+        sx()
+        }
+
+</script>
+
+</body>
+</html>

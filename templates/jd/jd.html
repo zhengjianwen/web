@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./img/css.css">
+    <script src="./img/jquery-3.1.1.js"></script>
+    <title>京东轮播图</title>
+    <style>
+        *{margin: 0;padding: 0;
+}
+.hide{
+    display: none;
+}
+a{text-decoration: none;display: inline-block;}
+body{
+    background-color: papayawhip;
+}
+#lb{
+    background-color: palegoldenrod;
+    position: absolute;
+    width: 790px;
+    height: 340px;
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+#lb .tp{
+    width: 790px;
+    height: 340px;
+    margin: 0 auto;
+}
+#lb .tp ul,#lb .tp li{
+    list-style: none;
+}
+#lb .tp ul{
+    display: inline-block;
+    width: 790px;
+    height:340px;
+    border: solid 1px red;
+}
+#lb .tp .potion{
+    position: absolute;
+}
+#lb .tb{
+    display: inline-block;
+    position: absolute;
+    margin-left: -91px;
+    width: 190px;
+    height: 18px;
+    left: 50%;
+    bottom: 20px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background-color: hsla(0,0%,100%,.3);
+
+}
+#lb .tb span{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 3px;
+    background-color: white;
+    border-radius: 50%;
+}
+#lb .tb span.s1{
+    background-color: red;
+}
+
+#lb>a{
+    position: absolute;
+    top: 140px;
+    width: 40px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    color: white;
+    font-size: 20px;
+    background-color: rgba(0,0,0,.1);
+}
+#lb>a.left{
+    border-bottom-right-radius:10px ;
+    border-top-right-radius:10px ;
+}
+#lb>a.right{
+    border-bottom-left-radius:10px ;
+    border-top-left-radius:10px ;
+}
+#lb>a:hover{
+    background-color: rgba(0, 0, 0, 0.33);
+}
+#lb a.left{
+    left: 0px;
+}
+#lb a.right{
+    right: 0px;
+}
+    </style>
+</head>
+<body>
+
+<div id="lb">
+    <div class="tp">
+        <ul class="potion">
+            <li class="potion"><a href="index.html"><img src="http://www.hairuinet.com/images/1.jpg"></a></li>
+            <li class="potion hide"><a href="index.html"><img src="http://www.hairuinet.com/images/2.jpg"></a></li>
+            <li class="potion hide"><a href="index.html"><img src="http://www.hairuinet.com/images/3.jpg"></a></li>
+            <li class="potion hide"><a href="index.html"><img src="http://www.hairuinet.com/images/4.jpg"></a></li>
+            <li class="potion hide"><a href="index.html"><img src="http://www.hairuinet.com/images/5.jpg"></a></li>
+            <li class="potion hide"><a href="index.html"><img src="http://www.hairuinet.com/images/6.jpg"></a></li>
+            <li class="potion hide"><a href="index.html"><img src="http://www.hairuinet.com/images/7.jpg"></a></li>
+            <li class="potion hide"><a href="index.html"><img src="http://www.hairuinet.com/images/8.jpg"></a></li>
+        </ul>
+    </div>
+    <div class="tb">
+        <span class="s1"></span>
+        <span class=""></span>
+        <span class=""></span>
+        <span class=""></span>
+        <span class=""></span>
+        <span class=""></span>
+        <span class=""></span>
+        <span class=""></span>
+    </div>
+    <a class="left hide" href="javascript:void 0"> < </a>
+    <a class="right hide" href="javascript:void 0"> > </a>
+</div>
+
+
+<script>
+    /**
+ * Created by hairui on 2017/2/17.
+ */
+tp = 0;//全局变量
+$(function () {
+    var time=setInterval(lb,1000);
+    console.log($('#lb a.left'));
+    $('#lb').mouseover(function () {
+        $('#lb a.left').removeClass('hide').next().removeClass('hide');
+       clearInterval(time);
+       time=undefined;
+       //鼠标单击按钮显示当前图片
+        $('span').mouseover(function () {
+            tp=$('span').index($(this));
+            $(this).addClass('s1').siblings().removeClass('s1');
+            $('.tp li').eq(tp).removeClass('hide').siblings().addClass('hide')
+        });
+    }).mouseleave(function () {
+            $('#lb>a').addClass('hide')
+            time = setInterval(lb,1000)
+            });//去除左右的按钮,出现轮播
+});
+
+//轮播设置
+function lb() {
+        if (tp==7){
+            tp=0;
+            $('li.potion').eq(tp).removeClass('hide').siblings().addClass('hide');
+            $('.tb span').eq(tp).addClass('s1').siblings().removeClass('s1');
+        }else {
+            $('li.potion').eq(tp).addClass('hide').next().removeClass('hide');
+            $('.tb span').eq(tp+1).addClass('s1').siblings().removeClass('s1');
+            tp++
+        }
+};
+
+function qh() {
+    if (tp>0){
+            $('li.potion').eq(tp).removeClass('hide').siblings().addClass('hide');
+            $('.tb span').eq(tp).addClass('s1').siblings().removeClass('s1');
+        }else {
+            $('li.potion').eq(tp).removeClass('hide').siblings().addClass('hide');
+            $('.tb span').eq(tp).addClass('s1').siblings().removeClass('s1');
+}}
+
+$('a.left').click(function () {
+        if (tp>0){tp--;}else {tp=7;}
+        qh()
+        });
+
+$('a.right').click(function () {
+        if (tp<7){tp++;}else {tp=0;}
+        qh()
+        });
+</script>
+</body>
+</html>

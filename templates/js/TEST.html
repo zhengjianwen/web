@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<script>
+    Array.prototype.del=function(n) {
+　if(n<0)　//如果n<0，则不进行任何操作。
+　　return this;
+　else
+　　return this.slice(0,n).concat(this.slice(n+1,this.length));
+}
+    a=[111,222,3333,4444]
+    console.log(a.del(2))
+</script>
+
+</body>
+</html>

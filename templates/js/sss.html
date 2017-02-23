@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="aa" style="width: 300px;height: 300px;background-color: black">
+    <div id="bb" style="background-color: red;width: 100px;height: 100px;"></div>
+</div>
+<script>
+    var ele=document.getElementById('aa')
+    ele.onclick=function () {
+        alert("hello outer!")
+
+    }
+
+
+    var ele1=document.getElementById('bb')
+    ele1.onclick=function (e) {
+        alert('hello inner')
+        e.stopPropagation()
+    }
+
+</script>
+
+
+</body>
+</html>

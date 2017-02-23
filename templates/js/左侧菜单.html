@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>left_menu</title>
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+          function show(self){
+              $(self).next().removeClass("hide");
+              $(self).parent().siblings().children(".con").addClass("hide");
+          }
+    </script>
+    <style>
+          .menu{
+              height: 500px;
+              width: 30%;
+              border: solid 1px red;
+              border-radius:15px ;
+              background-color: gainsboro;
+              float: left;
+          }
+          .content{
+              height: 500px;
+              width: 60%;
+              border: solid 1px red;
+              border-radius:15px ;
+              background-color: #dadada;
+              float: left;
+              margin-left: 20px;
+          }
+         .title{
+             border: solid 1px seashell;
+             text-align: center;
+             border-radius: 15px;
+             line-height: 50px;
+             background-color: #425a66;
+             color: #fff;}
+         .hide{
+             display: none;
+         }
+        .menu .item .con div{
+            line-height: 30px;
+            margin-left: 30px;
+            color: #3625ff;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="outer">
+    <div class="menu">
+        <div class="item">
+            <div class="title" onclick="show(this);">最热文章</div>
+            <div class="con">
+                <div>花儿为什么这样红</div>
+                <div>兔子为什么不吃窝边草</div>
+                <div>不到长城非好汉</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title" onclick="show(this);">公司新闻</div>
+            <div class="con hide">
+                <div>Python就业怎么样</div>
+                <div>开发学什么比较好</div>
+                <div>为什么要选择开发</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="title" onclick="show(this);">行业动态</div>
+            <div class="con hide">
+                <div>某某公司招聘16名程序员</div>
+                <div>程序员最新技术</div>
+                <div>本页内容为测试内容</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="content"></div>
+
+</div>
+
+</body>
+</html>

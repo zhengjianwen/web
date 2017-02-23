@@ -1,0 +1,29 @@
+
+--创建表
+
+CREATE TABLE userdb(
+      id INT PRIMARY KEY AUTo_increment,
+      name VARCHAR(25),
+      gender CHAR,
+      age INT DEFAULT 20,
+      dep VARCHAR (20),
+      salary DOUBLE (7,2)
+);
+
+--添加一个字段 work 属性 varchar 最长20字节 默认 it 不为空
+ALTER TABLE userdb ADD work VARCHAR(20) NOT NULL UNIQUE AFTER id;
+
+--修改字段
+
+ALTER TABLE userdb MODIFY work DEFAULT it;
+
+ALTER TABLE userdb CHANGE dep hehe VARCHAR (5)DEFAULT 'haha';
+
+desc userdb;
+
+
+--删除字段
+
+ALTER TABLE userdb DROP a;
+
+

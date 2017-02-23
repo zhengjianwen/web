@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <script src="jquery-3.1.1.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<p>111</p>
+<p>222</p>
+<p>333</p>
+<p>444</p>
+
+<script>
+    $.extend({myprint:function () {
+        console.log("hello")
+    }
+    });
+    $.myprint()
+
+    $.fn.extend({
+        printall:function (e) {
+            $.each($(this),function (x,y) {
+                console.log(x)
+                console.log(y)
+            })
+
+        }
+    })
+    $('p').printall()
+
+</script>
+
+</body>
+</html>

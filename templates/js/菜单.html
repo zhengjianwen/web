@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>海瑞二级联动</title>
+    <style>
+        .xian{
+
+        }
+        .hidd{
+            display:none ;
+        }
+    </style>
+</head>
+<body>
+<div>
+
+    <select id="city">
+        <option>请选择</option>
+    </select>
+
+    <select class="xian hidd">
+        <option>选择市</option>
+    </select>
+
+</div>
+<script>
+    var date={'北京':['朝阳区',"东城区",'西城区','海淀区'],'河北':['石家庄','张家口','唐山']};
+    var c=document.getElementById('city');
+    var x=document.getElementsByClassName('xian')[0];
+    for (var i in date){
+        var ele=document.createElement('option');
+        ele.innerHTML=i;
+        c.appendChild(ele)
+    }
+
+    c.onchange=function () {
+        x.classList.remove('hidd');
+        var pro=(this.options[this.selectedIndex]).innerHTML;//注意复数
+        console.log(pro)
+        var c_c=date[pro];
+        console.log(c_c);
+
+        x.options.length=1;
+
+        for (var i=0;c_c.length>i;i++){
+            var op=document.createElement('option');
+            op.innerHTML=c_c[i];
+            console.log(c_c[i])
+            x.appendChild(op)
+        }
+    }
+
+
+
+</script>
+
+
+
+</body>
+</html>

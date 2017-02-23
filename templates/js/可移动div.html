@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.1.1.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div style="border: 2px solid #ddd;width: 300px;height: 200px;position: absolute;" id="dd">
+        <div id="title" style="background-color: black;height: 40px;color: white;text-align: center;line-height: 40px;">
+            标题
+        </div>
+        <div style="height: 300px;text-align: center">
+            静夜思<br>
+            床前明月光<br>
+            疑是地上霜<br>
+            举头望明月<br>
+            低头思故乡
+        </div>
+    </div>
+<script>
+    $('#title').click(function () {
+        $(this).css('cursor','move')
+    }).mousedown(function (e) {
+        var x= e.event.clientX;//获取到鼠标原始位置
+        var y= e.event.clientY;//获取到鼠标原始位置
+
+        var left=$(this).parent().offset().left;//标签x的距离
+        var aright=$(this).parent().offset().top;//标签Y的距离
+
+        $(this).mousemove(function (e) {
+
+            var new_x=e.clientX();
+            var new_y=e.clientY();
+
+            var now_x=(new_x-x)+left;
+            var now_y=(new_x-y)+aright;
+
+            $(this).parent().css('left',now_x)
+            $(this).parent().css('right',now_y)
+        }).mouseup(function(){
+            $(this).unbind('mousemove');
+        });
+        
+
+    })
+
+
+
+</script>
+
+</body>
+</html>

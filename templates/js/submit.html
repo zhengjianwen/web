@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>Title</title>
+</head>
+<body>
+<form action="" id="aa">
+    <input type="text" id="s" name="user" value="">
+    <input type="submit" id="a">
+
+</form>
+<script>
+    var ele=document.getElementById('aa')
+    ele.submit=function (e) {
+        alert(ele.value)
+        if(ele.value==''){
+            alert("请输入用户名")
+            e.preventDefault()
+        }else if(ele.value=='hairui'){
+            alert('登录成功')
+        }else {
+            alert('用户名不正确')
+            e.preventDefault()
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
